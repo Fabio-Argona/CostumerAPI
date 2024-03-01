@@ -23,5 +23,8 @@ public class CostumerController {
     public Costumer save(@RequestBody Costumer costumer){
         return repository.save(costumer);
     }
-
+    @GetMapping("{id}")
+    public Costumer findOneId(@PathVariable Integer id){
+        return repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
 }
