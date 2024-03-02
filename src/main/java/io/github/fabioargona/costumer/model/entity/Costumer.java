@@ -22,7 +22,7 @@ public class Costumer {
     @Column(nullable = false, length = 11)
     private String cpf;
 
-    @Column(name = "date_register")
+    @Column(name = "date_register", updatable = false)
     private LocalDate dateRegister;
 
     @PrePersist

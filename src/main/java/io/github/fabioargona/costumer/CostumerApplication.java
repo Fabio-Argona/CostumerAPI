@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 public class CostumerApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(CostumerApplication.class, args);
 	}
 
