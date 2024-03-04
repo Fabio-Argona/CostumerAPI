@@ -2,6 +2,7 @@ package io.github.fabioargona.costumer.rest;
 
 import io.github.fabioargona.costumer.model.entity.Costumer;
 import io.github.fabioargona.costumer.model.repository.CostumerRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class CostumerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Costumer save(@RequestBody Costumer costumer){
+    public Costumer save(@RequestBody @Valid Costumer costumer){
         return repository.save(costumer);
     }
 

@@ -1,6 +1,5 @@
 package io.github.fabioargona.costumer.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -20,12 +19,12 @@ public class Costumer {
     private  Integer id;
 
     @Column(nullable = false, length = 150)
-    @NotEmpty
+    @NotEmpty(message = "{mandatory.name.field}")
     private String name;
 
     @Column(nullable = false, length = 11)
-    @NotNull
-    @CPF
+    @NotNull(message = "{mandatory.cpf.field}")
+    @CPF(message = "{mandatory.cpf.invalid}")
     private String cpf;
 
     @Column(name = "date_register", updatable = false)
