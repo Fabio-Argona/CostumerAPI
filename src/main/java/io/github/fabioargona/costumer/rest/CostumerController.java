@@ -46,7 +46,7 @@ public class CostumerController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateCostumerId(@PathVariable Integer id, @RequestBody Costumer updateCostumer){
+    public void updateCostumerId(@PathVariable Integer id, @RequestBody @Valid Costumer updateCostumer){
         repository
                 .findById(id)
                 .map(costumer -> {
