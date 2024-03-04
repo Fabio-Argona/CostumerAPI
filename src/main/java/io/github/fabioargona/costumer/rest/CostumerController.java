@@ -29,7 +29,7 @@ public class CostumerController {
     public Costumer findOneId(@PathVariable Integer id){
         return repository
                 .findById(id)
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!"));
     }
 
     @DeleteMapping("{id}")
@@ -41,7 +41,7 @@ public class CostumerController {
                     repository.delete(costumer);
                     return Void.TYPE;
                 })
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!"));
     }
 
     @PutMapping("{id}")
@@ -54,6 +54,6 @@ public class CostumerController {
                     costumer.setCpf(updateCostumer.getCpf());
                     return repository.save(updateCostumer);
                 })
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!"));
     }
 }
